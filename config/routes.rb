@@ -1,6 +1,8 @@
 
 
 Rails.application.routes.draw do
+  get 'users/new'
+
   get 'shohada/shahid1' 
 
   get 'shohada/shahid2'
@@ -24,6 +26,7 @@ Rails.application.routes.draw do
   get 'shohada/welcome' 
   get 'shohada/download' => "shohada#download"
 
+  get 'shohada/signup'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

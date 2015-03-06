@@ -1,26 +1,22 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-<title><%= full_title(yield(:title)) %></title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  		<meta charset="utf-8">
-</head>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag "application", media: "all",
+                                           "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+  </head>
+  
 <body>
-
-<div id="header">
+<%= render 'layouts/header' %>
+    <div class="container">
 <h1><%= yield(:persianname) %></h1>
 <h1><%= yield(:englishname) %></h1>
-</div>
-
-<div id="nav">
 
 <img src= "<%= yield(:image) %>" alt="Mountain View" style="width:600px;height:300px">
-</div>
 
-<div id="section">
 <p  align="right">
 <%= yield(:content) %>
 </p>
@@ -37,7 +33,9 @@
 <p  align="center">
 <a href=<%= yield(:next) %>> یا لیتنا کنا معه، توفیق زیارت شهید بعدی </a>
 </p>
-</div>
 
-</body>
+      <%= render 'layouts/footer' %>
+       </div>
+   
+  </body>
 </html>

@@ -36,7 +36,7 @@ class ShohadaController < ApplicationController
   def download
      render :layout => false
   end
-  def add
-     render :layout => 'simple.html.erb'
+  def signup
+     render :layout => 'simple'
   end
 end
