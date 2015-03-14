@@ -14,4 +14,12 @@
  *= require_self
  */
  
+body {    
+/*background-image: url(/images/back.jpg);
+background-size: cover;
+background-repeat: no-repeat;*/
+background-color:#DAD1CA;
+  padding-top: 60px;
+}
+
 

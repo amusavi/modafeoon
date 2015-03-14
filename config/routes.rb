@@ -1,6 +1,10 @@
 
 
 Rails.application.routes.draw do
+  get 'sessions/new'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
   #get 'shahids/new'
 
   get 'shohada/shahid1' 
@@ -26,7 +30,7 @@ Rails.application.routes.draw do
   get 'shohada/welcome' 
   get 'shohada/download' => "shohada#download"
 
-  get 'users/login'
+  #get 'users/login'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -36,7 +40,7 @@ Rails.application.routes.draw do
   #root :to => "users#show", :via => :get
 
   resources :users
-
+  resources :shahids
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

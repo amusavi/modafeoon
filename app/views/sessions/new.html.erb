@@ -1,0 +1,24 @@
+<% provide(:title, "Log in") %>
+<center>
+<h1>ورود </h1>
+</center>
+<div class="row" align="right">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label :رایانامه %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password, "کلمه عبور" %>
+      <%= f.password_field :password, class: 'form-control' %>
+  
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>Remember me on this computer</span>
+      <% end %>
+      <%= f.submit "ورود به سامانه ", class: "btn btn-primary" %>
+    <% end %>
+
+    <p>قبلا عضو نشده اید؟ <%= link_to "عضویت جدید", :controller => "users", :action => "new" %></p>
+  </div>
+</div>

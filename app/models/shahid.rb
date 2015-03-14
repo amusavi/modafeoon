@@ -1,8 +1,7 @@
 class Shahid < ActiveRecord::Base
-  validates :pname, presence: true
+  before_save { self.ename = ename.downcase }
+  validates :pname,  presence: true, length: { maximum: 50 }
   
-  #VALID_REGEX=/^(?:[^\W_]|\s)*$/u
-  validates :ename, presence: true
-                    #format: { with: VALID_REGEX }
+  validates :pname,  presence: true, length: { maximum: 50 }
   validates :bio, presence: true
 end

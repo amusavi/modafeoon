@@ -1,2 +1,22 @@
-<h1>Shahids#new</h1>
-<p>Find me in app/views/shahids/new.html.erb</p>
+<% provide(:title, 'افزودن شهید') %>
+<center>
+<h1>افزودن شهید  </h1>
+</center>
+<div class="row" align="right">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@shahid) do |f| %>
+     <%= render 'shared/error_messages' %>
+
+      <%= f.label :pname %>
+      <%= f.text_field :pname , class: 'form-control' %>
+
+      <%= f.label :ename %>
+      <%= f.text_field :ename, class: 'form-control' %>
+
+      <%= f.label :bio, "مختصر زندگی نامه" %>
+      <%= f.text_field :bio , class: 'form-control'%>
+
+      <%= f.submit "افزودن به پایگاه شهدا", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

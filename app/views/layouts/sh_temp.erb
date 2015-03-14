@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag "application", media: "all",
+                                           "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+  </head>
+  
+<body>
+<div class="container">
+       <%= render 'layouts/header' %>
+<table width="100%" border="0">
+  <tr>
+      <td ><img src= "/images/cloud2.png" alt="Mountain View" style="width:150px;height:99px"></td>    
+      <td>
+
+             <center>
+      <h1><%= yield(:persianname) %></h1>
+      <h1><%= yield(:englishname) %></h1>
+      </center>
+      </td>
+      <td><img src= "/images/cloud2.png" alt="Mountain View" style="width:150px;height:99px"></td>    
+  </tr>
+
+  <tr valign="top">
+    <td  bgcolor="#eee" width="150">
+      <img src= "<%= yield(:image) %>" alt="Akse shahid" style="width:600px;height:300px">
+    </td>
+    <td bgcolor="#eee" >
+      
+      <p  align="right">
+        <%= yield(:content) %>
+      </p>
+      <p  align="right">
+<a href=<%= yield(:link1) %>> <%= yield(:link1name) %> </a>
+</p>
+<p  align="right">
+<a href=<%= yield(:link2) %>> <%= yield(:link2name) %> </a>
+</p>
+<p  align="right">
+<a href=<%= yield(:link3) %>> <%= yield(:link3name) %> </a>
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#b5dcb3">
+      <center>
+<p  align="center">
+<a href=<%= yield(:next) %>> یا لیتنا کنا معه، توفیق زیارت شهید بعدی </a>
+</p>
+      </center>
+    </td>
+  </tr>
+<tr>    
+<td><img src= "/images/cloud1.png" alt="Mountain View" style="width:150px;height:70px"></td>
+<td>     <center>  <%= render 'layouts/footer' %> </center> </td>
+<td><img src= "/images/cloud4.png" alt="Mountain View" style="width:150px;height:70px"></td>
+</tr>
+<tr>
+<td>
+ <%= debug(params) if Rails.env.development? %>
+</td>
+<tr>
+</table>
+       </div>
+   
+  </body>
+</html>
