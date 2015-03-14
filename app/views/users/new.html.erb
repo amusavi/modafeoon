@@ -1,4 +1,25 @@
 <% provide(:title, 'عضویت خادم الشهدا') %>
-<h1>ثبت نام </h1>
-<h1>در دست تهیه در فصل های بعدی </h1>
+<center>
+<h1>عضویت خادم الشهدا </h1>
+</center>
+<div class="row" align="right">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+     <%= render 'shared/error_messages' %>
 
+      <%= f.label :نام %>
+      <%= f.text_field :name , class: 'form-control' %>
+
+      <%= f.label :رایانامه %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password, "کلمه عبور" %>
+      <%= f.password_field :password , class: 'form-control'%>
+
+      <%= f.label :password_confirmation, "تکرار کلمه عبور" %>
+      <%= f.password_field :password_confirmation , class: 'form-control'%>
+
+      <%= f.submit "درخواست عضویت خادم الشهدا", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

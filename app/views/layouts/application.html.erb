@@ -59,6 +59,11 @@
 <td>     <center>  <%= render 'layouts/footer' %> </center> </td>
 <td><img src= "/images/cloud4.png" alt="Mountain View" style="width:150px;height:70px"></td>
 </tr>
+<tr>
+<td>
+ <%= debug(params) if Rails.env.development? %>
+</td>
+<tr>
 </table>
        </div>
    
