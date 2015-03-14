@@ -1,0 +1,11 @@
+<header class="navbar navbar-fixed-top" background-color="#DAD1CA">
+      <div class="container">
+        <%= link_to "صفحه نخست",:controller => "shohada", :action => "welcome", id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "ورود خدام شهدا", :controller => "users", :action => "login"%></li>
+            <li><%= link_to "ثبت نام ", :controller => "users", :action => "new"%></li>
+          </ul>
+        </nav>
+      </div>
+</header>
