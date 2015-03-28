@@ -1,0 +1,17 @@
+<% provide(:title, 'شهدا') %>
+
+<h1>شهدای مدافع حرم </h1>
+
+<%= will_paginate %>
+
+<ul class="shahids">
+  <% @shahids.each do |shahid| %>
+    <li>
+      <%= link_to shahid.pname, shahid %>
+      <%= link_to "delete", shahid, method: :delete,data: { confirm: "You sure?" } %>      
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>
+

@@ -1,0 +1,35 @@
+<% provide(:title, 'افزودن شهید') %>
+<center>
+<h1>افزودن شهید  </h1>
+</center>
+<div class="row" align="right">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@shahid) do |f| %>
+     <%= render 'shared/error_messages' %>
+
+
+      <%= f.label :pname, "نام و نام خانوادگی فارسی" %>
+      <%= f.text_field :pname , class: 'form-control' %>
+
+      <%= f.label :ename, "نام و نام خانوادگی به انگلیسی" %>
+      <%= f.text_field :ename, class: 'form-control' %>
+      
+      <%= f.label :bio, "مختصر زندگی نامه" %>
+      <%= f.text_field :bio , class: 'form-control'%>
+      
+      <%= f.label :link1, "پیوند درباره نحوه شهادت" %>
+      <%= f.text_field :link1 , class: 'form-control'%>
+      
+      <%= f.label :link2, "پیوند به خاطراتی از شهید" %>
+      <%= f.text_field :link2 , class: 'form-control'%>
+      
+      <%= f.label :link3, "پیوند صوتی تصویری درباره شهید" %>
+      <%= f.text_field :link3 , class: 'form-control'%>
+      
+       <%= f.label :picture,"تصویری از شهید-ترجیحا چندین تصویر درکنارهم با سایز کلی ششصد در سیصد"%>
+       <%= f.file_field :picture %>
+
+      <%= f.submit "به روزرسانی", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

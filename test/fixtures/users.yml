@@ -2,3 +2,9 @@ michael:
   name: Abbas Doran
   email: abas.doran@gmail.com
   password_digest: <%= User.digest('password') %>
+  admin: true
+
+archer:
+  name: Sterling Archer
+  email: duchess@example.gov
+  password_digest: <%= User.digest('password') %>
