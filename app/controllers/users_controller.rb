@@ -19,11 +19,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-
       UserMailer.account_activation(@user).deliver_now
       @user.send_activation_email
       flash[:info] = "خدا به شما جزای خیر دهد. رایانامه خود را جهت فعال سازی نام کاربری چک نمایید."
-      redirect_to @user      
+      render 'new'
     else
       render 'new'
     end

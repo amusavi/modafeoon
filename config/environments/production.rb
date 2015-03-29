@@ -14,7 +14,9 @@ Rails.application.configure do
     :domain         => 'modafeoon.herokuapp.com',
     :enable_starttls_auto => true
   }
-
+  config.action_mailer.sendmail_settings = {
+  :arguments => '-i'
+ } 
   # Code is not reloaded between requests.
   config.cache_classes = true
 
