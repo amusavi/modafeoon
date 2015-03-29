@@ -8,7 +8,7 @@ class AccountActivationsController < ApplicationController
       user.update_attribute(:activated_at, Time.zone.now)
       user.activate
       log_in user
-      flash[:success] = "شما اکنون یک خادم افتخاری شهدا هستید."
+      flash[:success] = "عضویت فعال شد. شما اکنون یک خادم افتخاری شهدا هستید"
       redirect_to user
     else
       flash[:danger] = "متاسفانه لینک صحیحی برای فعال سازی در اختیار ندارید"
