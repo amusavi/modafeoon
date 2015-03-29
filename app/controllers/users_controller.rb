@@ -1,3 +1,4 @@
+#encoding: utf-8
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
@@ -18,10 +19,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:success] = "Welcome to modafeoon website!"
-      redirect_to @user
-      
+
+      UserMailer.account_activation(@user).deliver_now
+      @user.send_activation_email
+      flash[:info] = "خدا به شما جزای خیر دهد. رایانامه خود را جهت فعال سازی نام کاربری چک نمایید."
+      redirect_to @user      
     else
       render 'new'
     end

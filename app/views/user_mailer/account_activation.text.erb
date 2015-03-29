@@ -1,0 +1,7 @@
+بسم رب الشهدا و الصدیقین 
+
+سلام <%= @user.name %>
+
+ به عضویت خادمین شهدای وب سایت مدافعین خوش آمدید. 
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+

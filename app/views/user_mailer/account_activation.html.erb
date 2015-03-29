@@ -1,0 +1,9 @@
+
+<h1>بسم رب الشهدا و الصدیقین 
+</h1>
+
+<p>
+  <p>سلام  <%= @user.name %></p> . به عضویت خادمین شهدای وب سایت مدافعین خوش آمدید
+</p>
+<%= link_to "فعال سازی حساب کاربری", edit_account_activation_url(@user.activation_token, email: @user.email) %>
+
