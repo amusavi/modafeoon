@@ -1,6 +1,10 @@
 
 
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   get 'sessions/new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
@@ -42,6 +46,7 @@ Rails.application.routes.draw do
   resources :users
   resources :shahids
   resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -6,8 +6,11 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject: "Welcome to Modafeoon website"
   end
 
-  def password_reset
-    @greeting = "سلام"
-    mail to: "to@example.org"
+  def password_reset(user)
+    @user = user
+    mail to: user.email, subject: "Password reset"
   end
+
 end
+
+

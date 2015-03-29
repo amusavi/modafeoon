@@ -1,3 +1,4 @@
+#encoding: utf-8
 class AccountActivationsController < ApplicationController
 
   def edit
@@ -7,10 +8,10 @@ class AccountActivationsController < ApplicationController
       user.update_attribute(:activated_at, Time.zone.now)
       user.activate
       log_in user
-      flash[:success] = "Account activated!"
+      flash[:success] = "شما اکنون یک خادم افتخاری شهدا هستید."
       redirect_to user
     else
-      flash[:danger] = "Invalid activation link"
+      flash[:danger] = "متاسفانه لینک صحیحی برای فعال سازی در اختیار ندارید"
       redirect_to root_url
     end
   end
