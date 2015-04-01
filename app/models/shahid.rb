@@ -3,12 +3,12 @@
 require "net/http"
 
 class Shahid < ActiveRecord::Base
-
+  has_many :comments, dependent: :destroy
   attr_accessor :picture_width, :picture_height
   before_save { self.ename = ename.downcase }
   
   validates :pname,  presence: true, length: { maximum: 50, minimum: 6 }, format: { :with =>  /\A([\u0600-\u06FF\uFB8A\u067E\u0686\u06AF_.,!()+=-]+\s?)+\Z/}, uniqueness: true
-  validates :bio, presence: true, length: { maximum: 600 } #, format: { :with =>  /\A([\u0600-\u06FF\uFB8A\u067E\u0686\u06AF_.,!()+=-]+\s?)+\Z/}
+  validates :bio, presence: true, length: { maximum: 950 } , format: { :with =>  /\A([\u0600-\u06FF\uFB8A\u067E\u0686\u06AF_.,!()+=-]+\s?)+\Z/}
   validates :ename,  presence: true, length: { maximum: 50, minimum: 6 }, format: { :with =>  /\A([0-9a-zA-Z_.,!()+=-]+\s?)+\Z/}, uniqueness: true
   validates :link1, :format => URI::regexp(%w(http https)), presence: true, length: { maximum: 200 }
   validates :link2, :format => URI::regexp(%w(http https)), presence: true, length: { maximum: 200 }
@@ -23,8 +23,6 @@ class Shahid < ActiveRecord::Base
   #    errors.add :picture, "Dimension is false."
   #  end
   #end
-    
-
 
 
 end

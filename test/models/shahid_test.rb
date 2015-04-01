@@ -13,7 +13,15 @@ class ShahidTest < ActiveSupport::TestCase
     @shahid.bio = ""
     assert_not @shahid.valid?
     end
-    
+ 
+ 
+   #test "associated comments should be destroyed" do
+    #@shahid.save
+    #@shahid.comments.create!(content: "la la la")
+    #assert_difference 'comment.count', -1 do
+    #  @shahid.destroy
+    #end
+  #end      
     #test "ename should be latin" do
     #@shahid.ename = "12$#f ali"
     #assert_not @shahid.valid?

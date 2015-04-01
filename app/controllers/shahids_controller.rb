@@ -2,7 +2,9 @@ class ShahidsController < ApplicationController
 
   def show
     @shahid = Shahid.find(params[:id])
+    @comments = @shahid.comments.paginate(page: params[:page])
     render :layout => "sh_temp"
+    
   end
   
   def new
