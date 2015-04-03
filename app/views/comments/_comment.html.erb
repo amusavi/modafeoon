@@ -1,7 +1,11 @@
 <li id="comment-<%= comment.id %>">
-  <span class="shahid"><%= link_to comment.shahid.name, comment.shahid %></span>
   <span class="content"><%= comment.content %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(comment.created_at) %> ago.
+    <% if current_user.admin? %>
+      <%= link_to "حذف نظر", comment, method: :delete,
+                                       data: { confirm: "مطمئنید که می خواهید این نظر را حذف کنید?" } %>
+     <% end %>
+
   </span>
 </li>

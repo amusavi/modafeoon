@@ -12,6 +12,9 @@
 <body>
 <div class="container">
        <%= render 'layouts/header' %>
+     <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>       
 <table width="100%" border="0">
   <tr>
       <td ><img src= "/images/cloud2.png" alt="Mountain View" style="width:150px;height:99px"></td>    
@@ -49,11 +52,20 @@
     <td colspan="2" bgcolor="#b5dcb3">
       <center>
 <p  align="center">
-<a href=<%= yield(:next) %>> یا لیتنا کنا معه، توفیق زیارت شهید بعدی </a>
 </p>
       </center>
     </td>
   </tr>
+<tr>
+<td>
+<%= render 'layouts/com' %>
+</td>
+</tr>
+<tr>
+<td>
+<%= render 'shared/comments_form' %>
+</td>
+</tr>
 <tr>    
 <td><img src= "/images/cloud1.png" alt="Mountain View" style="width:150px;height:70px"></td>
 <td>     <center>  <%= render 'layouts/footer' %> </center> </td>
@@ -65,7 +77,7 @@
 </td>
 </tr>
 </table>
-<%= render 'layouts/com' %>
+
        </div>
    
   </body>

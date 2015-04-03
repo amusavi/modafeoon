@@ -42,7 +42,7 @@ background-color:#DAD1CA;
     }
   }
   .timestamp {
-    color: $gray-light;
+    color: #d3d3d3;
     display: block;
     margin-left: 60px;
   }

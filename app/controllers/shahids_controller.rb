@@ -1,10 +1,15 @@
+#encoding: utf-8
 class ShahidsController < ApplicationController
 
   def show
     @shahid = Shahid.find(params[:id])
+    @comment = @shahid.comments.build 
     @comments = @shahid.comments.paginate(page: params[:page])
-    render :layout => "sh_temp"
     
+    cookies[:viewing_shahid] = @shahid.id
+    @feed_items = @shahid.feed.paginate(page: params[:page])
+
+    render :layout => "sh_temp"    
   end
   
   def new
@@ -14,7 +19,7 @@ class ShahidsController < ApplicationController
   def create
     @shahid = Shahid.new(shahid_params)
     if @shahid.save
-      flash[:success] = "saved new Shahid"
+      flash[:success] = "خدا به شما توفیق شهادت عنایت کند. شهید مورد نظر با موفقیت ثبت شد."
       redirect_to @shahid     
     else
       render 'new'
@@ -30,10 +35,21 @@ class ShahidsController < ApplicationController
   
   def destroy
     Shahid.find(params[:id]).destroy
-    flash[:success] = "Shahid deleted"
+    flash[:success] = "شهید مورد نظر از مجموعه شهدا حذف شد."
     redirect_to shahids_url
   end
   
+ def update
+    @shahid = Shahid.find(params[:id])
+    if @shahid.update_attributes(shahid_params)
+      # Handle a successful update.
+      flash[:success] = "مشخصات شهید مورد نظر به روزرسانی شد"
+      redirect_to @shahid
+    else
+      render 'edit'
+    end
+  end 
+ 
   private
 
     def shahid_params
