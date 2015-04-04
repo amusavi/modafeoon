@@ -1,15 +1,32 @@
 <% provide(:title, @user.name) %>
 <div class="row">
   <aside class="col-md-4">
-    <section class="user_info">
+    <section>
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
     </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
   </aside>
-</div>
     <div class="col-md-8">
-      <h3>نظرات ثبت شده از این کاربر</h3>
-      <%= render 'shared/feed' %>
+      <%= render 'follow_form' if logged_in? %>
+      <h3>دیدگاه های شخصی و دنبال شده</h3>
+  
+     <% if @user.name == current_user.name %> 
+          <%= render 'shared/feed' %>
+ 
+     <% else %>
+         <% if @user.comments.any? %>
+           <h3>Comments (<%= @user.comments.count %>)</h3>
+           <ol class="comments">
+           <%= render 'shared/comment' %>
+           </ol>
+           <%= will_paginate @comments %> 
+         <% end %>
+       <% end %>       
+
+    </div>
 </div>

@@ -14,17 +14,9 @@
 </li>
      <% end %>
 <% else if params[:controller]=='users' %>
-  -----------------
  <li id="comment-<%= comment.id %>">
   <span class="user">    
-  نظر
-  <% if comment.user.name == current_user.name %> 
-     <%= link_to  "شخصی" %></span>  
-  <% else %>     
-     <%= link_to comment.user.name, comment.user %></span>    
-  <% end %>   
-  <br>
-  درباره 
+  <%= link_to comment.user.name, comment.user %></span>    
   <span class="shahid"><%= link_to comment.shahid.pname, comment.shahid %></span>
   <br>
   <font color="magenta">

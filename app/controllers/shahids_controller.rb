@@ -25,6 +25,7 @@ class ShahidsController < ApplicationController
       render 'new'
     end
   end
+
   def index
  @shahids = Shahid.paginate(page: params[:page])
   end

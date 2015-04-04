@@ -42,12 +42,18 @@ Rails.application.routes.draw do
   root 'shohada#welcome'
 
   #root :to => "users#show", :via => :get
-
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :users
   resources :shahids
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :comments,          only: [:create, :destroy]
+  resources :relationships,       only: [:create, :destroy]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

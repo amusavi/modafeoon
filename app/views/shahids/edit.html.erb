@@ -1,4 +1,5 @@
 <% provide(:title, 'افزودن شهید') %>
+<% if current_user && current_user.admin? %>
 <center>
 <h1>افزودن شهید  </h1>
 </center>
@@ -33,3 +34,9 @@
     <% end %>
   </div>
 </div>
+
+<% else %>
+</p>
+</p>
+لطفا ابتدا وارد شوید! 
+<% end %>

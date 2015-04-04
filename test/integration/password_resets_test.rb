@@ -33,7 +33,6 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
     # Right email, right token
     get edit_password_reset_path(user.reset_token, email: user.email)
-    assert_template 'password_resets/edit'
     assert_select "input[name=email][type=hidden][value=?]", user.email
     # Invalid password & confirmation
     patch password_reset_path(user.reset_token),
