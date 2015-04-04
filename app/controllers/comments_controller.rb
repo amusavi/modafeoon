@@ -1,9 +1,11 @@
 #encoding: utf-8
 class CommentsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
+  before_action :correct_user,   only: :destroy
 
   def create
     @comment =   Shahid.find_by(id:cookies[:viewing_shahid]).comments.build(comment_params)
+    @comment.user=current_user
     if @comment.save
       flash[:success] = "یادداشت شما با موفقیت ذخیره شد!"
       redirect_to(:back)
@@ -16,12 +18,16 @@ class CommentsController < ApplicationController
 
  def destroy
     @comment.destroy
-    flash[:success] = "Micropost deleted"
+    flash[:success] = "نظر حذف گردید"
     redirect_to(:back)
   end
   private
 
     def comment_params
-      params.require(:comment).permit(:content)
+      params.require(:comment).permit(:content,:user)
+    end
+    def correct_user
+      @comment = current_user.comments.find_by(id: params[:id])
+      redirect_to(:back) if @comment.nil?
     end
 end

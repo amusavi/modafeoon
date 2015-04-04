@@ -17,9 +17,7 @@ class Shahid < ActiveRecord::Base
   mount_uploader :picture, PictureUploader, presence: true
   validates_format_of :picture, :with => %r{\.(png|jpg|jpeg)\Z}i, :message => "just jpg,jpeg and png are allowed"
   
-  def feed
-    Comment.where("shahid_id = ?", id)
-  end
+
   #validate :check_dimensions, :on => :create
   #def check_dimensions
   #  if !picture_cache.nil? && !(picture.width == 600 && picture.height == 300)

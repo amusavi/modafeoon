@@ -7,7 +7,7 @@ class ShahidsController < ApplicationController
     @comments = @shahid.comments.paginate(page: params[:page])
     
     cookies[:viewing_shahid] = @shahid.id
-    @feed_items = @shahid.feed.paginate(page: params[:page])
+
 
     render :layout => "sh_temp"    
   end
